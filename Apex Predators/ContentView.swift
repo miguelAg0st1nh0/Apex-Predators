@@ -11,33 +11,24 @@ struct ContentView: View {
     
     @Environment(\.colorScheme) var darkMode
     @State private var schemeColor: Color = .white
-    
+    @State private var currentSelection = PredatorType.all
+    @State private var alphabetical = true
     @State private var searchText = ""
     let predators = Predators()
     
     var filteredPredators: [ApexPredator] {
-        
-        if searchText.isEmpty {
-            return predators.apexPredators
-        } else {
-            return predators.apexPredators.filter { predator in
-                predator.name.localizedCaseInsensitiveContains(searchText)
-            }
-        }
+        predators.filter(by: currentSelection)
+        predators.sort(by: alphabetical)
+        return predators.search(for: searchText)
     }
     
     var body: some View {
         
-        
         NavigationStack {
             List(filteredPredators) { predator in
                 NavigationLink {
-                    Image(predator.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 250, height: 250)
+                    PredatorView(predator: predator)
                         
-                    
                 } label: {
                     
                     HStack {
@@ -53,7 +44,7 @@ struct ContentView: View {
                             Text(predator.name)
                                 .fontWeight(.bold)
                                 .fontDesign(.rounded)
-                                .font(.system(size: 20))
+                                .font(.system(size: 18))
                             //Dinossaur Type
                             Text(predator.type.rawValue.capitalized)
                                 .font(.subheadline)
@@ -73,6 +64,35 @@ struct ContentView: View {
             .searchable(text: $searchText)
             .autocorrectionDisabled()
             .animation(.interactiveSpring, value: searchText)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        withAnimation{
+                            alphabetical.toggle()
+                        }
+                    } label: {
+                        Image(systemName: alphabetical ? "film" : "textformat")
+                            .symbolEffect(.bounce, value: alphabetical)
+                            .foregroundColor(schemeColor)
+                    }
+                    
+                }
+            }
+            .toolbar() {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Picker("Filter", selection: $currentSelection.animation(.spring)) {
+                            ForEach(PredatorType.allCases) { type in
+                                Label(type.rawValue.capitalized, systemImage: type.icon)
+                            }
+                        }
+                    } label: {
+                        Image(systemName: "slider.horizontal.3")
+                            .foregroundColor(schemeColor)
+                    }
+                    
+                }
+            }
         }
         
     }

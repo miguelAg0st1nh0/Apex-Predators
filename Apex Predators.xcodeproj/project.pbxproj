@@ -14,6 +14,7 @@
 		5E0EC4FF2C8659D2009ABFA5 /* jpapexpredators.json in Resources */ = {isa = PBXBuildFile; fileRef = 5E0EC4FE2C8659D2009ABFA5 /* jpapexpredators.json */; };
 		5E0EC5012C865B49009ABFA5 /* ApexPredator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0EC5002C865B49009ABFA5 /* ApexPredator.swift */; };
 		5E0EC5032C866083009ABFA5 /* Predators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0EC5022C866083009ABFA5 /* Predators.swift */; };
+		5ED2AE9D2C89206A002EE3D9 /* PredatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2AE9C2C89206A002EE3D9 /* PredatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		5E0EC4FE2C8659D2009ABFA5 /* jpapexpredators.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = jpapexpredators.json; path = ../../JP17Resources/jpapexpredators.json; sourceTree = "<group>"; };
 		5E0EC5002C865B49009ABFA5 /* ApexPredator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexPredator.swift; sourceTree = "<group>"; };
 		5E0EC5022C866083009ABFA5 /* Predators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predators.swift; sourceTree = "<group>"; };
+		5ED2AE9C2C89206A002EE3D9 /* PredatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			children = (
 				5E0EC4F02C865778009ABFA5 /* Apex_PredatorsApp.swift */,
 				5E0EC4F22C865778009ABFA5 /* ContentView.swift */,
+				5ED2AE9C2C89206A002EE3D9 /* PredatorView.swift */,
 				5E0EC5002C865B49009ABFA5 /* ApexPredator.swift */,
 				5E0EC5022C866083009ABFA5 /* Predators.swift */,
 				5E0EC4FE2C8659D2009ABFA5 /* jpapexpredators.json */,
@@ -151,6 +154,7 @@
 				5E0EC4F32C865778009ABFA5 /* ContentView.swift in Sources */,
 				5E0EC5032C866083009ABFA5 /* Predators.swift in Sources */,
 				5E0EC4F12C865778009ABFA5 /* Apex_PredatorsApp.swift in Sources */,
+				5ED2AE9D2C89206A002EE3D9 /* PredatorView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

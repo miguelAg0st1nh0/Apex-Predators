@@ -11,6 +11,7 @@ class Predators {
     
     ///Initialise an empty Array of type: `ApexPredator` to be populated with data from a JSON file.
     var apexPredators: [ApexPredator] = []
+    var allApexPredators: [ApexPredator] = []
     
     /// Upon instantiation of the class, the function `decodeApexPredatorData` is called to provide data from JSON file
     ///
@@ -34,7 +35,8 @@ class Predators {
                 let data = try Data(contentsOf: url)
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                apexPredators = try decoder.decode([ApexPredator].self, from: data)
+                allApexPredators = try decoder.decode([ApexPredator].self, from: data)
+                apexPredators = allApexPredators
             } catch {
                 print("Error decoding JSON file: \(error)")
             }
@@ -42,4 +44,33 @@ class Predators {
         }
     }
     
+    func search(for searchText: String) -> [ApexPredator] {
+        if searchText.isEmpty {
+            return apexPredators
+        } else {
+            return apexPredators.filter { predator in
+                predator.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+    
+    func sort(by alphabetical: Bool) {
+        apexPredators.sort { predator1, predator2 in
+            if alphabetical {
+                predator1.name < predator2.name
+            } else {
+                predator1.id < predator2.id
+            }
+        }
+    }
+    
+    func filter(by type: PredatorType) {
+        if type == .all {
+            apexPredators = allApexPredators
+        } else {
+                apexPredators = allApexPredators.filter { predator in
+                predator.type == type
+            }
+        }
+    }
 }
