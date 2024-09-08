@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Apex_PredatorsApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+               
         }
     }
 }

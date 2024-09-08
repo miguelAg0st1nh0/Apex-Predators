@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
-
+import MapKit
+    
 struct ContentView: View {
     
-    @Environment(\.colorScheme) var darkMode
-    @State private var schemeColor: Color = .white
+    @Environment(\.colorScheme) var colorScheme
+    
+    @State private var currentColor: Color = .white
+    
     @State private var currentSelection = PredatorType.all
     @State private var alphabetical = true
     @State private var searchText = ""
@@ -27,7 +30,7 @@ struct ContentView: View {
         NavigationStack {
             List(filteredPredators) { predator in
                 NavigationLink {
-                    PredatorView(predator: predator)
+                    PredatorView(position: .camera(MapCamera(centerCoordinate: predator.location, distance: 30000)), predator: predator)
                         
                 } label: {
                     
@@ -38,33 +41,49 @@ struct ContentView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 100, height: 100)
                             .cornerRadius(10)
-                            .shadow(color: schemeColor, radius: 3)
+                            .shadow(color: ColorSchemeManager.dynamicColor(for: colorScheme), radius: 3)
                         VStack(alignment: .leading) {
                             //Dinossaur Name
                             Text(predator.name)
                                 .fontWeight(.bold)
                                 .fontDesign(.rounded)
                                 .font(.system(size: 18))
-                            //Dinossaur Type
-                            Text(predator.type.rawValue.capitalized)
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .padding(.vertical, 5)
-                                .padding(.horizontal, 13)
-                                .background(predator.type.background)
-                                .clipShape(.capsule)
+                            HStack{
+                                //Dinossaur Type
+                                Text(predator.type.rawValue.capitalized)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .fontDesign(.rounded)
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 10)
+                                    .background(predator.type.background)
+                                    .clipShape(.capsule)
+                                //Dinossaur Diet
+                                Text(predator.diet.rawValue.capitalized)
+                                    .font(.subheadline)
+                                    .fontWeight(.semibold)
+                                    .fontDesign(.rounded)
+                                    .padding(.vertical, 5)
+                                    .padding(.horizontal, 10)
+                                    .background(predator.diet.background)
+                                    .clipShape(.capsule)
+                            }
+                            
+                            
                         }
                     } .onAppear(){
-                        getColorScheme()
+                        
                     }
                 }
                 
             }
-            .navigationTitle("Apex Predators  🦅")
+            //Title
+            .navigationTitle("Apex Predators")
             .searchable(text: $searchText)
             .autocorrectionDisabled()
             .animation(.interactiveSpring, value: searchText)
             .toolbar {
+                //Toolbar sort options
                 ToolbarItem(placement: .topBarLeading) {
                     Button {
                         withAnimation{
@@ -73,12 +92,13 @@ struct ContentView: View {
                     } label: {
                         Image(systemName: alphabetical ? "film" : "textformat")
                             .symbolEffect(.bounce, value: alphabetical)
-                            .foregroundColor(schemeColor)
+                            .foregroundColor(ColorSchemeManager.dynamicColor(for: colorScheme))
                     }
                     
                 }
             }
             .toolbar() {
+                //Toolbar filter options
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu {
                         Picker("Filter", selection: $currentSelection.animation(.spring)) {
@@ -88,7 +108,7 @@ struct ContentView: View {
                         }
                     } label: {
                         Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(schemeColor)
+                            .foregroundColor(ColorSchemeManager.dynamicColor(for: colorScheme))
                     }
                     
                 }
@@ -97,16 +117,6 @@ struct ContentView: View {
         
     }
     
-    
-    ///Custom function that automatically changes the dinossaur image shadow property to the inverse of the current color scheme.
-    ///
-    func getColorScheme() {
-        if darkMode == .dark{
-            schemeColor = .white
-        } else {
-            schemeColor = .black
-        }
-    }
 }
 
 

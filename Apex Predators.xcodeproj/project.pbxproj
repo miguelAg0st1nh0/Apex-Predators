@@ -15,6 +15,8 @@
 		5E0EC5012C865B49009ABFA5 /* ApexPredator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0EC5002C865B49009ABFA5 /* ApexPredator.swift */; };
 		5E0EC5032C866083009ABFA5 /* Predators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0EC5022C866083009ABFA5 /* Predators.swift */; };
 		5ED2AE9D2C89206A002EE3D9 /* PredatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED2AE9C2C89206A002EE3D9 /* PredatorView.swift */; };
+		5ED56F442C8A68860016C775 /* ColorSchemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED56F432C8A68860016C775 /* ColorSchemeManager.swift */; };
+		5EF9E6FE2C8D904F00260C99 /* PredatorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF9E6FD2C8D904F00260C99 /* PredatorMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		5E0EC5002C865B49009ABFA5 /* ApexPredator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApexPredator.swift; sourceTree = "<group>"; };
 		5E0EC5022C866083009ABFA5 /* Predators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predators.swift; sourceTree = "<group>"; };
 		5ED2AE9C2C89206A002EE3D9 /* PredatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredatorView.swift; sourceTree = "<group>"; };
+		5ED56F432C8A68860016C775 /* ColorSchemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSchemeManager.swift; sourceTree = "<group>"; };
+		5EF9E6FD2C8D904F00260C99 /* PredatorMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredatorMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				5E0EC4F02C865778009ABFA5 /* Apex_PredatorsApp.swift */,
 				5E0EC4F22C865778009ABFA5 /* ContentView.swift */,
 				5ED2AE9C2C89206A002EE3D9 /* PredatorView.swift */,
+				5EF9E6FD2C8D904F00260C99 /* PredatorMap.swift */,
+				5ED56F432C8A68860016C775 /* ColorSchemeManager.swift */,
 				5E0EC5002C865B49009ABFA5 /* ApexPredator.swift */,
 				5E0EC5022C866083009ABFA5 /* Predators.swift */,
 				5E0EC4FE2C8659D2009ABFA5 /* jpapexpredators.json */,
@@ -150,6 +156,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED56F442C8A68860016C775 /* ColorSchemeManager.swift in Sources */,
+				5EF9E6FE2C8D904F00260C99 /* PredatorMap.swift in Sources */,
 				5E0EC5012C865B49009ABFA5 /* ApexPredator.swift in Sources */,
 				5E0EC4F32C865778009ABFA5 /* ContentView.swift in Sources */,
 				5E0EC5032C866083009ABFA5 /* Predators.swift in Sources */,
