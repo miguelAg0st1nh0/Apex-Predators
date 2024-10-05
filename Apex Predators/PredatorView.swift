@@ -42,13 +42,13 @@ struct PredatorView: View {
                         .font(.largeTitle)
                         .padding(.bottom, 10)
                     VStack(alignment: .leading) {
-                        Text("●Height: \(predator.height)")
-                        Text("●Lenght: \(predator.lenght)")
-                        Text("●Weight: \(predator.weight)")
+                        Text("● Height: \(predator.height)")
+                        Text("● Lenght: \(predator.lenght)")
+                        Text("● Weight: \(predator.weight)")
                     }
-                    .font(.system(size: 18))
+                    .font(.system(size: 15))
                     .fontDesign(.rounded)
-                    .fontWeight(.semibold)
+                    .fontWeight(.light)
                     .padding(.leading, 15)
                     
                     
