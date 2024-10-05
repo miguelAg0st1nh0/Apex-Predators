@@ -111,6 +111,8 @@ struct PredatorView: View {
     }
 }
 
+
+///Preview that allows the user to test a single dinossaur in the preview according to the index passed on the array ``Predators().apexPredators[index]``
 #Preview {
     NavigationStack {
         PredatorView(position: .camera(MapCamera(centerCoordinate: Predators().apexPredators[1].location, distance: 30000)), predator: Predators().apexPredators[1])
