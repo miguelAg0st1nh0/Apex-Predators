@@ -13,7 +13,7 @@ struct PredatorView: View {
     @State var position: MapCameraPosition
     let predator: ApexPredator
     @Environment(\.colorScheme) var currentScheme
-
+    
     var body: some View {
         GeometryReader { geo in
             ScrollView {
@@ -25,8 +25,8 @@ struct PredatorView: View {
                             LinearGradient(stops: [
                                 Gradient.Stop(color: .clear, location: 0.8),
                                 Gradient.Stop(color: ColorSchemeManager.returnSameColorScheme(for: currentScheme), location: 1)
-                                ],
-                                    startPoint: .top, endPoint: .bottom)
+                            ],
+                                           startPoint: .top, endPoint: .bottom)
                         }
                     Image(predator.image)
                         .resizable()
@@ -35,7 +35,7 @@ struct PredatorView: View {
                         .scaleEffect(x: -1)
                         .shadow(color: ColorSchemeManager.dynamicColor(for: currentScheme), radius: 2)
                         .offset(x: 70, y: 40)
-                        
+                    
                 }
                 VStack (alignment: .leading) {
                     Text(predator.name)
@@ -81,7 +81,7 @@ struct PredatorView: View {
                     Text("Movie Moments:")
                         .font(.title)
                         .padding(.top, 15)
-                        
+                    
                     ForEach(predator.movieScenes) { movieScene in
                         Text(movieScene.movie)
                             .font(.title2)
@@ -99,7 +99,6 @@ struct PredatorView: View {
                         .font(.caption)
                         .foregroundStyle(.blue)
                         .padding(.bottom, 15)
-                    
                 }
                 .padding()
                 .frame(width: geo.size.width, alignment: .leading)
